@@ -1,0 +1,19 @@
+{
+  "name": "throttle-x",
+  "version": "1.0.0",
+  "description": "Zero-dep throttle, debounce, and rate-control utilities for JavaScript.",
+  "main": "src/index.js",
+  "bin": {
+    "throttle-x": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node test/index.test.js"
+  },
+  "keywords": ["throttle", "debounce", "rate-limit", "leading", "trailing", "zero-dependency"],
+  "license": "MIT",
+  "author": "Sulthon Zulkarnain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthonzh/throttle-x.git"
+  }
+}
