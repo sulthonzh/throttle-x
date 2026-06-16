@@ -1,0 +1,26 @@
+{
+  "name": "throttle-x",
+  "version": "1.0.0",
+  "description": "Zero-dependency throttle and debounce utilities for Node.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test tests/",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": ["throttle", "debounce", "rate-limit", "leading", "trailing", "zero-dependency"],
+  "license": "MIT",
+  "author": "sulthonzh",
+  "repository": { "type": "git", "url": "git+https://github.com/sulthonzh/throttle-x.git" },
+  "engines": { "node": ">=14" },
+  "files": ["dist", "README.md", "LICENSE"]
+}
