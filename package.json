@@ -14,13 +14,36 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node --test tests/",
+    "test": "node --test tests/index.test.js",
     "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["throttle", "debounce", "rate-limit", "leading", "trailing", "zero-dependency"],
+  "keywords": [
+    "throttle",
+    "debounce",
+    "rate-limit",
+    "leading",
+    "trailing",
+    "zero-dependency"
+  ],
   "license": "MIT",
   "author": "sulthonzh",
-  "repository": { "type": "git", "url": "git+https://github.com/sulthonzh/throttle-x.git" },
-  "engines": { "node": ">=14" },
-  "files": ["dist", "README.md", "LICENSE"]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthonzh/throttle-x.git"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/sulthonzh/throttle-x#readme",
+  "bugs": {
+    "url": "https://github.com/sulthonzh/throttle-x/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
 }
