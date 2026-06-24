@@ -8,6 +8,35 @@
 /** Package version */
 export const VERSION = '1.0.0';
 
+/** Validate time parameter (waitMs, ms, delayMs) — must be non-negative finite number */
+function validateTimeParam(name: string, value: number): void {
+  if (typeof value !== 'number') {
+    throw new TypeError(`${name} must be a number, got ${typeof value}`);
+  }
+  if (!isFinite(value)) {
+    throw new TypeError(`${name} must be finite, got ${value}`);
+  }
+  if (value < 0) {
+    throw new RangeError(`${name} must be non-negative, got ${value}`);
+  }
+}
+
+/** Validate retry count parameter (times) — must be non-negative finite integer */
+function validateTimesParam(name: string, value: number): void {
+  if (typeof value !== 'number') {
+    throw new TypeError(`${name} must be a number, got ${typeof value}`);
+  }
+  if (!isFinite(value)) {
+    throw new TypeError(`${name} must be finite, got ${value}`);
+  }
+  if (value < 0) {
+    throw new RangeError(`${name} must be non-negative, got ${value}`);
+  }
+  if (!Number.isInteger(value)) {
+    throw new TypeError(`${name} must be an integer, got ${value}`);
+  }
+}
+
 /** Generic function type */
 type AnyFn = (...args: any[]) => any;
 
@@ -44,6 +73,7 @@ export function throttle<A extends any[] = any[], R = any>(
   waitMs: number,
   options: ThrottleOptions = {}
 ): ThrottledFunction<A, R> {
+  validateTimeParam('waitMs', waitMs);
   const { leading = true, trailing = true } = options;
 
   let timer: ReturnType<typeof setTimeout> | null = null;
@@ -175,6 +205,7 @@ export function debounce<A extends any[] = any[], R = any>(
   waitMs: number,
   options: DebounceOptions = {}
 ): DebouncedFunction<A, R> {
+  validateTimeParam('waitMs', waitMs);
   const { leading = false, trailing = true } = options;
 
   let timer: ReturnType<typeof setTimeout> | null = null;
@@ -249,6 +280,7 @@ export function debounce<A extends any[] = any[], R = any>(
  * await delay(500, 'done');
  */
 export function delay<T>(ms: number, value?: T): Promise<T> {
+  validateTimeParam('ms', ms);
   return new Promise((resolve) => setTimeout(() => resolve(value as T), ms));
 }
 
@@ -259,6 +291,7 @@ export function delay<T>(ms: number, value?: T): Promise<T> {
  * const result = await timeout(fetch(url), 5000);
  */
 export function timeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  validateTimeParam('ms', ms);
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
       reject(new Error(`Timeout after ${ms}ms`));
@@ -288,6 +321,8 @@ export async function retry<A extends any[], R>(
   delayMs: number,
   ...args: A
 ): Promise<R> {
+  validateTimesParam('times', times);
+  validateTimeParam('delayMs', delayMs);
   let lastError: unknown;
   for (let i = 0; i <= times; i++) {
     try {
