@@ -5,6 +5,9 @@
  * Debounce: delay execution until silence period elapses
  */
 
+/** Package version */
+export const VERSION = '1.0.0';
+
 /** Generic function type */
 type AnyFn = (...args: any[]) => any;
 
