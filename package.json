@@ -1,6 +1,6 @@
 {
   "name": "throttle-x",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Zero-dependency throttle and debounce utilities for Node.js",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node --test tests/index.test.js",
+    "test": "node --test tests/*.js",
+    "test:core": "node --test tests/index.test.js",
     "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
@@ -32,16 +33,20 @@
     "url": "git+https://github.com/sulthonzh/throttle-x.git"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "homepage": "https://github.com/sulthonzh/throttle-x#readme",
   "bugs": {
     "url": "https://github.com/sulthonzh/throttle-x/issues"
+  },
+  "cli": {
+    "throttle-x": "./cli.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0"

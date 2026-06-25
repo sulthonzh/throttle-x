@@ -6,7 +6,7 @@
  */
 
 /** Package version */
-export const VERSION = '1.0.0';
+export const VERSION = '1.1.0';
 
 /** Validate time parameter (waitMs, ms, delayMs) — must be non-negative finite number */
 function validateTimeParam(name: string, value: number): void {
