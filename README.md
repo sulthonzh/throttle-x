@@ -1,6 +1,6 @@
 # throttle-x
 
-Zero-dependency throttle and debounce utilities for Node.js. 52 tests, 100% pass rate, production-ready throttle/debounce plus async helpers — all in <4KB with zero dependencies.
+Zero-dependency throttle and debounce utilities for Node.js. 58 tests, 100% pass rate, production-ready throttle/debounce plus async helpers — all in <4KB with zero dependencies.
 
 ## Why
 
