@@ -10,3 +10,6 @@ __pycache__/
 .venv/
 *.egg-info/
 .mypy_cache/
+
+# Package artifacts
+*.tgz
