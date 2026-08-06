@@ -106,7 +106,7 @@ test('throttle: within-window call with no active timer starts trailing timer', 
   // Actually: flush() clears timer but lastCallTime remains.
   // After flush, if we call within window: elapsed < waitMs, timer=null → lines 124-125!
 
-  fn2 = throttle(() => calls++, 200, { leading: false, trailing: true });
+  const fn2 = throttle(() => calls++, 200, { leading: false, trailing: true });
   fn2(); // sets lastArgs, starts timer (leading=false so no leading invoke)
   // Flush to clear timer but keep lastCallTime=0
   fn2.flush(); // invokes trailing, clears timer, lastArgs=null

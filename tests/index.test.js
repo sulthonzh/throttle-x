@@ -55,13 +55,12 @@ test('throttle: cancel prevents trailing', async () => {
 
 test('throttle: flush invokes pending immediately', () => {
   let calls = 0;
-  let lastVal;
   const fn = throttle((v) => { calls++; return v; }, 1000);
   fn('a');
   fn('b');
   fn('c');
   assert.strictEqual(calls, 1);
-  lastVal = fn.flush();
+  const lastVal = fn.flush();
   assert.strictEqual(calls, 2);
   assert.strictEqual(lastVal, 'c');
 });

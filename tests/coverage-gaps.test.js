@@ -103,11 +103,7 @@ test('createThrottle: accepts options (trailing: false)', async () => {
 // === createDebounce factory function (lines 301-303) ===
 
 test('createDebounce: returns a debounced function', () => {
-  let calls = 0;
-  const fn = createDebounce(() => {
-    calls++;
-    return 'result';
-  }, 100);
+  const fn = createDebounce(() => {}, 100);
   assert.strictEqual(typeof fn, 'function');
   assert.strictEqual(typeof fn.cancel, 'function');
   assert.strictEqual(typeof fn.flush, 'function');
